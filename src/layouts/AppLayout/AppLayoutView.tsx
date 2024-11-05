@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { CssBaseline } from "@mui/material";
-import "./app-layout.css";
 import ThemeProvider from "@/providers/theme-provider";
+import { useAppStyles } from "./AppLayoutStyles";
 
-export default function AppLayout() {
+export const AppLayoutView = () => {
+  const { classes: styles } = useAppStyles();
+
   return (
-    <div className="app-layout">
+    <div className={styles.appLayout}>
       <CssBaseline />
       <ThemeProvider>
         <Outlet />
       </ThemeProvider>
     </div>
   );
-}
+};

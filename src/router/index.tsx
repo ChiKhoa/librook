@@ -4,13 +4,16 @@ import {
   Route,
 } from "react-router-dom";
 import AuthRoutes from "./auth.routes";
-import { ErrorPage } from "@/pages";
+import { ErrorPage, NotFoundPage } from "@/pages";
 import { AppLayout } from "@/layouts";
+import ProtectedRoutes from "./protected.routes";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<AppLayout />} errorElement={<ErrorPage />}>
+    <Route element={<AppLayout />} errorElement={<ErrorPage />}>
       {AuthRoutes}
+      {ProtectedRoutes}
+      <Route path="*" element={<NotFoundPage />} />
     </Route>
   )
 );
