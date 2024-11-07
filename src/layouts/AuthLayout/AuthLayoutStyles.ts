@@ -1,8 +1,21 @@
 import { tss } from "tss-react/mui";
+import bgImage from "@/assets/auth-bg.png";
 
 export const useAuthStyles = tss
   .withParams<{ isFocus?: boolean; isSmallSize?: boolean }>()
   .create(({ theme, isFocus, isSmallSize }) => {
+    const mainBtn = isSmallSize
+      ? {
+          width: "100%",
+          aspectRatio: "auto",
+          borderRadius: "4px",
+        }
+      : {
+          width: "72px",
+          aspectRatio: "1/1",
+          borderRadius: "25%",
+        };
+
     return {
       authLayout: {
         width: "100%",
@@ -13,8 +26,7 @@ export const useAuthStyles = tss
       },
       background: {
         width: "100%",
-        backgroundImage:
-          "url(https://media.cntraveler.com/photos/5ab2dd37feb48e79b76f65fd/16:9/w_2580,c_limit/Stuttgart-City-Library-GettyImages-458074285.jpg)",
+        backgroundImage: `url(${bgImage})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -25,16 +37,14 @@ export const useAuthStyles = tss
       mainBtn: {
         alignSelf: "center",
         minWidth: "60px",
-        width: isSmallSize ? "60px" : "72px",
-        aspectRatio: "1/1",
-        borderRadius: isSmallSize ? "20%" : "25%",
+        ...mainBtn,
       },
       link: {
         fontSize: isSmallSize ? "11px" : theme.typography.caption.fontSize,
         fontWeight: "700",
         textDecoration: "none",
         textTransform: "uppercase",
-        color: theme.palette.grey[500],
+        color: `${theme.palette.grey[500]} !important`,
       },
     };
   });

@@ -2,7 +2,7 @@ enum EPathPrefix {
   AUTH = "/auth",
 }
 
-export const authRoutes = {
+export const routesAuth = {
   signIn: {
     name: "Sign in",
     path: `${EPathPrefix.AUTH}/sign-in`,
@@ -13,7 +13,7 @@ export const authRoutes = {
   },
 };
 
-export const protectedRoutes = {
+export const routesProtected = {
   dashboard: {
     name: "Dashboard",
     path: `/dashboard`,

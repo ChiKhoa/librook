@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Box, Stack, Typography } from "@mui/material";
-import { AuthState } from "./auth-store";
-import "./auth-layout.css";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
+import { RootState } from "@/store";
 import { DynamicBox } from "@/components/auth/DynamicBox/DynamicBox";
 import { useAuthStyles } from "./AuthLayoutStyles";
-import { useBreakpoints } from "@/hooks/useBreakpoints";
+import "./AuthLayout.css";
 
-export default function AuthView() {
-  const isFocus = useSelector((state: AuthState) => state.focused.value);
+export default function AuthLayoutView() {
+  const isFocus = useSelector((state: RootState) => state.authLayout.isFocus);
   const { isMobile, isTablet } = useBreakpoints();
 
   const { classes: styles, cx } = useAuthStyles({ isFocus });

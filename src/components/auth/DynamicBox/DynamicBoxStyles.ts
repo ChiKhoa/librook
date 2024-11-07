@@ -8,7 +8,7 @@ export const useStyles = tss
     const css: CSSObject =
       isMobile || isTablet
         ? {
-            maxWidth: "360px",
+            maxWidth: "380px",
             width: "100vw",
             top: "50%",
             left: "50%",

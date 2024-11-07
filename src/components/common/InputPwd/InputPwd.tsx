@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { UseFormRegisterReturn } from "react-hook-form";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   IconButton,
@@ -5,21 +7,23 @@ import {
   TextField,
   TextFieldProps,
 } from "@mui/material";
-import { useState } from "react";
 
-export const InputPassword = (props: Omit<TextFieldProps, "type">) => {
+interface IProps {
+  register?: UseFormRegisterReturn;
+}
+
+export const InputPwd = (props: Omit<TextFieldProps, "type"> & IProps) => {
+  const { register, ...restProps } = props;
   const [isShow, setIsShow] = useState(false);
 
   const toggleShowPwd = (currentValue: boolean) => {
     setIsShow(!currentValue);
   };
-
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
   };
-
   const handleMouseUpPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -28,6 +32,7 @@ export const InputPassword = (props: Omit<TextFieldProps, "type">) => {
 
   return (
     <TextField
+      {...register}
       label="Password"
       type={isShow ? "text" : "password"}
       slotProps={{
@@ -42,13 +47,17 @@ export const InputPassword = (props: Omit<TextFieldProps, "type">) => {
                 onMouseDown={handleMouseDownPassword}
                 onMouseUp={handleMouseUpPassword}
               >
-                {isShow ? <VisibilityOff fontSize="small" /> : <Visibility fontSize="small" />}
+                {isShow ? (
+                  <VisibilityOff fontSize="small" />
+                ) : (
+                  <Visibility fontSize="small" />
+                )}
               </IconButton>
             </InputAdornment>
           ),
         },
       }}
-      {...props}
+      {...restProps}
     />
   );
 };

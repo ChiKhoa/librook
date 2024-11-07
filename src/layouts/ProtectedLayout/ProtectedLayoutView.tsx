@@ -1,4 +1,4 @@
-import { authRoutes } from "@/configs/routes.config";
+import { routesAuth } from "@/configs/routes.config";
 import { Navigate, Outlet } from "react-router-dom";
 
 interface IProps {
@@ -6,7 +6,7 @@ interface IProps {
 }
 
 export const ProtectedLayoutView = ({ isAuthenticated }: IProps) => {
-  if (!isAuthenticated) return <Navigate to={authRoutes.signIn.path} />;
+  if (!isAuthenticated) return <Navigate to={routesAuth.signIn.path} />;
 
   return (
     <>
