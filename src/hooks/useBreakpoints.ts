@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { IBreakpoints } from "@/types/hooks";
+import { IBreakpoints } from "@/types/HooksType";
 
 /**
  * @returns

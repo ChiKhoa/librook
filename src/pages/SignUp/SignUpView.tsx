@@ -44,7 +44,7 @@ export default function SignUpView() {
         }
       );
     } else {
-      console.log("NO ERROR");
+      console.log(data);
     }
   };
 
