@@ -20,7 +20,7 @@ import { schemaSignIn } from "@/schemas/SchemaSignIn";
 import { Link, useNavigate } from "react-router-dom";
 import { routesAuth, routesProtected } from "@/configs/routes.config";
 import { setUserInfor } from "@/store/slices/UserInforSlice";
-import { hardUserInfor } from "@/utils/data/hard-data";
+import { hardUserInfor } from "@/utils/data/mock-up";
 
 export default function SignInView() {
   const navigate = useNavigate();
