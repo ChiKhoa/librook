@@ -9,7 +9,9 @@ import "./AuthLayout.css";
 
 export default function AuthLayoutView() {
   const isFocus = useSelector((state: RootState) => state.authLayout.isFocus);
-  const { isMobile, isTablet } = useBreakpoints();
+  const {
+    responsive: { isMobile, isTablet },
+  } = useBreakpoints();
 
   const { classes: styles, cx } = useAuthStyles({ isFocus });
 

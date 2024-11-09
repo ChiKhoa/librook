@@ -24,7 +24,9 @@ import { hardUserInfor } from "@/utils/data/mock-up";
 
 export default function SignInView() {
   const navigate = useNavigate();
-  const { isMobile, isTablet } = useBreakpoints();
+  const {
+    responsive: { isMobile, isTablet },
+  } = useBreakpoints();
   const isSmallSize = isMobile || isTablet;
 
   const { classes: styles } = useAuthStyles({ isSmallSize });
