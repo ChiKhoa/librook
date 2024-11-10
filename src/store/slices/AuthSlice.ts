@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface AuthState {
+interface IAuthState {
   isFocus: boolean;
 }
 
-const initialState: AuthState = {
+const initialState: IAuthState = {
   isFocus: false,
 };
 

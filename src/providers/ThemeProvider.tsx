@@ -1,13 +1,14 @@
+import { PropsWithChildren } from "react";
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
 } from "@mui/material/styles/";
-import { PropsWithChildren } from "react";
+import "@/assets/fonts/Poppins";
 
 export default function ThemeProvider({ children }: PropsWithChildren) {
   const theme = createTheme({
     typography: {
-      fontFamily: "cursive",
+      fontFamily: "Poppins, sans-serif",
     },
   });
 

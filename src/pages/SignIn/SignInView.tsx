@@ -17,11 +17,16 @@ import { blur, focus } from "@/store/slices/AuthSlice";
 import { InputPwd } from "@/components/common/InputPwd/InputPwd";
 import { useAuthStyles } from "@/layouts/AuthLayout/AuthLayoutStyles";
 import { schemaSignIn } from "@/schemas/SchemaSignIn";
-import { Link } from "react-router-dom";
-import { routesAuth } from "@/configs/routes.config";
+import { Link, useNavigate } from "react-router-dom";
+import { routesAuth, routesProtected } from "@/configs/routes.config";
+import { setUserInfor } from "@/store/slices/UserInforSlice";
+import { hardUserInfor } from "@/utils/data/mock-up";
 
 export default function SignInView() {
-  const { isMobile, isTablet } = useBreakpoints();
+  const navigate = useNavigate();
+  const {
+    responsive: { isMobile, isTablet },
+  } = useBreakpoints();
   const isSmallSize = isMobile || isTablet;
 
   const { classes: styles } = useAuthStyles({ isSmallSize });
@@ -36,10 +41,15 @@ export default function SignInView() {
     formState: { errors },
   } = useForm<TSignIn>({
     resolver: yupResolver(schemaSignIn),
+    defaultValues: {
+      userNameOrEmail: "123456",
+      passWord: "password",
+    },
   });
 
-  const onSubmit: SubmitHandler<TSignIn> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<TSignIn> = () => {
+    dispatch(setUserInfor(hardUserInfor));
+    navigate(routesProtected.dashboard.path);
   };
 
   return (
