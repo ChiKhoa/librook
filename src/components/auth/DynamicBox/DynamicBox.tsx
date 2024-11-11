@@ -7,7 +7,9 @@ interface IProps {
 }
 
 export const DynamicBox: React.FC<IProps> = ({ children }) => {
-  const { isMobile, isTablet } = useBreakpoints();
+  const {
+    responsive: { isMobile, isTablet },
+  } = useBreakpoints();
   const { classes: styles } = useStyles({ isMobile, isTablet });
 
   return <Stack className={styles.container}>{children}</Stack>;

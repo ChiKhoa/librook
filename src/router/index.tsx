@@ -5,14 +5,14 @@ import {
 } from "react-router-dom";
 import AuthRoutes from "./auth.routes";
 import { ErrorPage, NotFoundPage } from "@/pages";
-import { AppLayout } from "@/layouts";
+import { AppLayout, MainLayout } from "@/layouts";
 import ProtectedRoutes from "./protected.routes";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<AppLayout />} errorElement={<ErrorPage />}>
       {AuthRoutes}
-      {ProtectedRoutes}
+      <Route element={<MainLayout />}>{ProtectedRoutes}</Route>
       <Route path="*" element={<NotFoundPage />} />
     </Route>
   )

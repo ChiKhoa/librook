@@ -5,11 +5,13 @@ import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { RootState } from "@/store";
 import { DynamicBox } from "@/components/auth/DynamicBox/DynamicBox";
 import { useAuthStyles } from "./AuthLayoutStyles";
-import "./AuthLayout.css";
+import "./auth-layout.scss";
 
 export default function AuthLayoutView() {
   const isFocus = useSelector((state: RootState) => state.authLayout.isFocus);
-  const { isMobile, isTablet } = useBreakpoints();
+  const {
+    responsive: { isMobile, isTablet },
+  } = useBreakpoints();
 
   const { classes: styles, cx } = useAuthStyles({ isFocus });
 

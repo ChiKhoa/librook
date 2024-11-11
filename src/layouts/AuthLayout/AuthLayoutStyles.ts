@@ -1,5 +1,5 @@
 import { tss } from "tss-react/mui";
-import bgImage from "@/assets/auth-bg.png";
+import bgImage from "@/assets/images/auth-bg.png";
 
 export const useAuthStyles = tss
   .withParams<{ isFocus?: boolean; isSmallSize?: boolean }>()

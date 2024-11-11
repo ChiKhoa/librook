@@ -11,4 +11,11 @@ export default defineConfig({
       "@": path.resolve(dirname(fileURLToPath(import.meta.url)), "./src"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler",
+      },
+    },
+  },
 });

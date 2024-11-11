@@ -13,7 +13,9 @@ import { Link } from "react-router-dom";
 import { routesAuth } from "@/configs/routes.config";
 
 export default function SignUpView() {
-  const { isMobile, isTablet } = useBreakpoints();
+  const {
+    responsive: { isMobile, isTablet },
+  } = useBreakpoints();
   const isSmallSize = isMobile || isTablet;
 
   const { classes: styles } = useAuthStyles({ isSmallSize });
@@ -44,7 +46,7 @@ export default function SignUpView() {
         }
       );
     } else {
-      console.log("NO ERROR");
+      console.log(data);
     }
   };
 

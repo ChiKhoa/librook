@@ -1,5 +1,5 @@
 import { tss } from "tss-react/mui";
-import { IBreakpoints } from "@/types/hooks";
+import { IBreakpoints } from "@/types/HooksType";
 import { CSSObject } from "tss-react";
 
 export const useStyles = tss

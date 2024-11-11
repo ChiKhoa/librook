@@ -6,7 +6,9 @@ export const DashboadView = () => {
 
   return (
     <div className={styles.container}>
-      <Stack>DASHBOARD</Stack>
+      <Stack>
+        123
+      </Stack>
     </div>
   );
 };
